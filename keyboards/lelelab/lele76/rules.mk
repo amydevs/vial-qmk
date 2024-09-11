@@ -3,3 +3,4 @@ F_CPU = 16000000
 BOOTLOADER = usbasploader
 
 OLED_ENABLE = yes
+LTO_ENABLE = yes
