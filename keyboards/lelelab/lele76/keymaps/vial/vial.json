@@ -2,7 +2,7 @@
     "name": "Lele76",
     "vendorId": "0xCA21",
     "productId": "0x004c",
-    "lighting": "vialrgb",
+    "lighting": "none",
     "matrix": {
         "rows": 5,
         "cols": 16
