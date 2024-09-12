@@ -24,36 +24,3 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_ESC,KC_LCTL,KC_LCMD,KC_LALT,KC_SPACE,KC_RCTL,KC_RCMD,KC_LEFT,KC_DOWN,KC_RIGHT
     )
 };
-// clang-format on
-
-#ifdef OLED_ENABLE
-
-// Display seems to be a 64x128 mounted horizontally.
-// I didn't find a better way than just rotating it by 90 degrees.
-oled_rotation_t oled_init_user(oled_rotation_t rotation) {
-    return OLED_ROTATION_90;
-}
-
-// Print the name of the current layer and the LED states of the keyboard.
-bool oled_task_user() {
-    oled_write_P(PSTR("Layer: "), false);
-
-    switch (get_highest_layer(layer_state)) {
-        case _LAYER1:
-            oled_write_P(PSTR("Layer 1\n"), false);
-            break;
-        case _LAYER2:
-            oled_write_P(PSTR("Layer 2\n"), false);
-            break;
-        default:
-            oled_write_ln_P(PSTR("Undefined"), false);
-    }
-
-    led_t led_state = host_keyboard_led_state();
-    oled_write_P(led_state.num_lock ? PSTR("NUM ") : PSTR("    "), false);
-    oled_write_P(led_state.caps_lock ? PSTR("CAP ") : PSTR("    "), false);
-    oled_write_P(led_state.scroll_lock ? PSTR("SCR ") : PSTR("    "), false);
-
-    return false;
-}
-#endif

@@ -1,5 +1,4 @@
 #include QMK_KEYBOARD_H
-#include "screen_app.h"
 
 enum layer_names {
     _LAYER1,
@@ -25,25 +24,3 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_ESC,KC_LCTL,KC_LCMD,KC_LALT,KC_SPACE,KC_RCTL,KC_RCMD,KC_LEFT,KC_DOWN,KC_RIGHT
     )
 };
-// clang-format on
-
-// OLED STUFF STARTS HERE
-// based on https://github.com/qmk/qmk_firmware/blob/master/keyboards/kyria/keymaps/j-inc/keymap.c
-
-// In your rules.mk make sure you have:
-// OLED_ENABLE = yes
-// WPM_ENABLE = yes
-
-#ifdef OLED_ENABLE
-
-// Used to draw on to the oled screen
-bool oled_task_user(void) {
-    app_draw();
-    return false;
-}
-
-// Display seems to be a 64x128 mounted horizontally.
-oled_rotation_t oled_init_user(oled_rotation_t rotation) {
-    return OLED_ROTATION_90;
-}
-#endif

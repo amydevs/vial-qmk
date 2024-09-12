@@ -7,7 +7,4 @@ TAP_DANCE_ENABLE = no
 COMBO_ENABLE = no
 KEY_OVERRIDE_ENABLE = no
 
-WPM_ENABLE = yes
-
-I2C_DRIVER_REQUIRED = yes
-SRC += screen_app.c tiny_mcu.c
+SRC += lele76.c screen_app.c tiny_mcu.c
